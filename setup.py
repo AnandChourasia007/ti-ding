@@ -8,7 +8,8 @@ setup(
     author_email="anandchourasia007@gmail.com",
     packages=find_packages(),
     install_requires=[
-        "playsound",
+        "playsound == 1.2.2",
+        "plyer"
     ],
     entry_points={
         "console_scripts": [

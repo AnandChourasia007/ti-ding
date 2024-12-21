@@ -1,6 +1,7 @@
 import time
 import subprocess
 import sys
+from plyer import notification
 from playsound import playsound
 
 def print_elapsed_time(elapsed_time):
@@ -22,21 +23,27 @@ def run_command_with_notification():
 
     # The command to run
     command = sys.argv[1:]
-    sound_file = "alert.wav"  # Default notification sound
+    success_tone = "./sound_effects/success.wav"
+    error_tone = "./sound_effects/error.wav"
 
     try:
-        # Run the terminal command
         start_time = time.time()
-        process = subprocess.run(command, check=True, shell=True)
+        process = subprocess.run(command, check=True, shell=True)   # Run the terminal command
         end_time = time.time()
         elapsed_time = end_time - start_time
         print_elapsed_time(elapsed_time)
-        
+        notification.notify(
+            title="Command executed successfully",
+            message=f"{' '.join(command)} done!",
+            app_name="ti-ding notifier",
+            timeout=5
+        )
         # Play the notification sound
-        playsound(sound_file)
+        playsound(success_tone)
     except subprocess.CalledProcessError as e:
         print(f"Command failed with exit code {e.returncode}.")
-        playsound(sound_file)  # Optionally, we can use a different sound for failures.
+        playsound(error_tone)  
     except Exception as e:
         print(f"An error occurred: {e}")
+        playsound(error_tone)  
 
