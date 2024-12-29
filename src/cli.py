@@ -1,8 +1,14 @@
+import os
 import time
 import subprocess
 import sys
+import importlib.resources
+from pathlib import Path
 from plyer import notification
 from playsound import playsound
+
+# def get_sound_file(file_name):
+#     return importlib.resources.files('src.sound_effects') / file_name
 
 def print_elapsed_time(elapsed_time):
     hours, rem = divmod(elapsed_time, 3600)
@@ -23,8 +29,8 @@ def run_command_with_notification():
 
     # The command to run
     command = sys.argv[1:]
-    success_tone = "./sound_effects/success.wav"
-    error_tone = "./sound_effects/error.wav"
+    success_tone = str(importlib.resources.files('src').joinpath("sound_effects", "success.wav"));
+    error_tone = str(importlib.resources.files('src').joinpath("sound_effects", "error.wav"));
 
     try:
         start_time = time.time()

@@ -7,6 +7,10 @@ setup(
     author="Anand Chourasia",
     author_email="anandchourasia007@gmail.com",
     packages=find_packages(),
+    package_data={
+        'src.sound_effects': ['*.mp3'],
+    },
+    include_package_data=True,
     install_requires=[
         "playsound == 1.2.2",
         "plyer"
@@ -16,5 +20,5 @@ setup(
             "notify=src.cli:run_command_with_notification",
         ],
     },
-    python_requires=">=3.6",
+    python_requires=">=3.7",
 )
