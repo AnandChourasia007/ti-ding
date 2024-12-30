@@ -34,7 +34,7 @@ def run_command_with_notification():
 
     try:
         start_time = time.time()
-        process = subprocess.run(command, check=True, shell=True)   # Run the terminal command
+        process = subprocess.run(command, check=True)   # Run the terminal command
         end_time = time.time()
         elapsed_time = end_time - start_time
         print_elapsed_time(elapsed_time)

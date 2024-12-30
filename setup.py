@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="ti-ding",
-    version="1.1.0",
+    version="1.3.0",
     description="A CLI tool to notify you with sound when a terminal process completes.",
     author="Anand Chourasia",
     author_email="anandchourasia007@gmail.com",
