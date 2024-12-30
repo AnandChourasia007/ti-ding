@@ -12,5 +12,4 @@ Build: ```python -m build```
 Usage: ``` notify <command> ```
 
 ## Next goals 
-Add support for mac and unix commands  
 Add option to use different audio files
