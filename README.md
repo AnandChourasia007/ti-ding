@@ -4,6 +4,7 @@ Python package to notify when a process is finished in the terminal.
 
 ## pip installation
 Installation: ``` pip install ti-ding ```  
+(For macOS: ``` pip install pyobjc ```)
 Usage: ``` notify <command> ```
 
 ## download repo
